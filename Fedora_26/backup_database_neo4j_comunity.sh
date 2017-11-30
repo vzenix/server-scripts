@@ -1,0 +1,1 @@
+# Script for backup of neo4j database
