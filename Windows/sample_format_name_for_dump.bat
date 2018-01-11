@@ -1,3 +1,5 @@
+@echo off
+
 :: Check WMIC is available
 WMIC.EXE Alias /? >NUL 2>&1 || GOTO s_error
 
@@ -25,12 +27,16 @@ Set logtimestamp=%_yyyy%-%_mm%-%_dd%_%_hour%_%_minute%_%_second%
 goto make_dump
 
 :s_error
+@echo on
 echo WMIC is not available, using default log filename
 Set logtimestamp=_
 goto make_dump
 
 :make_dump
-set FILENAME=database_dump_%logtimestamp%.sql
+@echo on
+set FILENAME=database_dump_%logtimestamp%
 
-echo %FILENAME%;
+echo %FILENAME%.sql;
+echo %FILENAME%.zip;
+echo %FILENAME%.bak;
 PAUSE
