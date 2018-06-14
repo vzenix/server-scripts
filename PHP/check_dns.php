@@ -1,4 +1,4 @@
-
+<?php
 echo gethostbyname("vzenix.es");
 echo PHP_EOL;
 var_export(dns_get_record("vzenix.es"));
